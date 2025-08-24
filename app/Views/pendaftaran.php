@@ -1,21 +1,61 @@
 <?= $this->include('layout/header'); ?>
 
-<div class="container mt-5">
-  <div class="card shadow-sm">
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+
+  .form-section {
+    max-height: 80vh;        /* agar tidak kepanjangan */
+    overflow-y: auto;        /* bisa discroll */
+    padding-right: 10px;     /* biar ga ketutupan scrollbar */
+  }
+
+  .card {
+    border-radius: 12px;
+    border: none;
+  }
+
+  .card-header {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .form-label {
+    font-weight: 500;
+  }
+
+  .btn-success {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+  }
+
+  /* Scrollbar custom */
+  .form-section::-webkit-scrollbar {
+    width: 6px;
+  }
+  .form-section::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 6px;
+  }
+</style>
+
+<div class="container mt-5 mb-5">
+  <div class="card shadow-lg">
     <div class="card-header bg-primary text-white">
-      <h4>Pendaftaran Antrian Online</h4>
+      <h4 class="mb-0">Pendaftaran Antrian Online</h4>
     </div>
-    <div class="card-body">
+    <div class="card-body form-section">
       <form action="<?= base_url('pendaftaran/simpan') ?>" method="post">
-        
+
         <div class="mb-3">
-          <label for="nama_pasien" class="form-label" placeholder="Nama Pasien">Nama Pasien</label>
-          <input type="text" class="form-control" name="nama_pasien" required>
+          <label for="nama_pasien" class="form-label">Nama Pasien</label>
+          <input type="text" class="form-control" name="nama_pasien" placeholder="Masukkan nama lengkap" required>
         </div>
 
         <div class="mb-3">
-          <label for="no_hp" class="form-label" placeholder="No HP">No HP</label>
-          <input type="text" class="form-control" name="no_hp" required>
+          <label for="no_hp" class="form-label">No HP</label>
+          <input type="text" class="form-control" name="no_hp" placeholder="0812xxxxxxx" required>
         </div>
 
         <div class="mb-3">
@@ -39,10 +79,16 @@
             <option value="3">Kandungan</option>
             <option value="4">Mata</option>
             <option value="5">Bedah</option>
+            <option value="6">Laboratorium</option>
           </select>
         </div>
 
-        <button type="submit" class="btn btn-success" style="float: right;">Daftar</button>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-success">
+             Daftar
+          </button>
+        </div>
+
       </form>
     </div>
   </div>
